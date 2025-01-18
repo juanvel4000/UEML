@@ -1,5 +1,4 @@
 import shlex
-
 class UEML:
     
     def __init__(self, file):
@@ -14,16 +13,13 @@ class UEML:
                 for line_num, line in enumerate(file, 1):
                     line = line.strip()
 
-                    # Skip comments
                     if line.startswith('//'):
                         continue
 
-                    # Start a new section
                     elif line.startswith('>'):
                         current_section_name = line[1:].strip()
                         sections[current_section_name] = {}
 
-                    # Process key-value pairs within sections
                     else:
                         if not line.endswith(';'):
                             raise SyntaxError(f'Missing semicolon at the end of line {line_num}: {line}')
@@ -44,7 +40,6 @@ class UEML:
         return sections
 
     def _parse_value(self, value):
-        """Parses the value into the appropriate Python type."""
         value = shlex.split(value)[0]
 
         if value.lower() == "true":
@@ -61,7 +56,6 @@ class UEML:
             return value
 
     def _convert_to_number(self, s):
-        """Helper function to convert a string to int or float if possible."""
         if s.isdigit():
             return int(s)
         try:
