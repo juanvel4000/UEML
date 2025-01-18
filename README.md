@@ -18,13 +18,16 @@ Unlike **TOML**/**ini**, **UEML** Declares Sections with `>` instead of wrapping
 
 ## Installation
 
-The official UEML Module is in [PyPI](https://pypi.org/project/UEML)
+The official UEML _Python_ Module is in [PyPI](https://pypi.org/project/UEML)
 
 ```bash
   pip install UEML
 ```
     
-    
+There is also a **UEML** Module for _Ruby_, install it with 
+```bash
+gem install UEML
+```
 ## License
 
 **UEML** is licensed with the **MIT** License, read **LICENSE**
