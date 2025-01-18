@@ -28,6 +28,8 @@ There is also a **UEML** Module for _Ruby_ in [Ruby Gems](https://rubygems.org/g
 ```bash
 gem install UEML
 ```
+## Note
+UEML is not production ready (yet), therefore several functions or features could be incomplete in some **implementations**, feel free to pull request and send **issues**
 ## License
 
 **UEML** is licensed with the **MIT** License, read **LICENSE**
