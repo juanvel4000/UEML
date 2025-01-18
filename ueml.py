@@ -1,4 +1,5 @@
 import shlex
+
 class UEML:
     
     def __init__(self, file):
@@ -51,9 +52,12 @@ class UEML:
         elif value.replace('.', '', 1).isdigit():
             return float(value)
         elif ',' in value:
-            return [self._convert_to_number(v.strip()) for v in value.split(',')]
+            return self._parse_array(value)
         else:
             return value
+
+    def _parse_array(self, value):
+        return [self._convert_to_number(v.strip()) for v in value.split(',')]
 
     def _convert_to_number(self, s):
         if s.isdigit():
@@ -62,3 +66,5 @@ class UEML:
             return float(s)
         except ValueError:
             return s
+ueml = UEML('example.ueml')
+print(ueml.read())
