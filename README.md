@@ -24,7 +24,7 @@ The official UEML _Python_ Module is in [PyPI](https://pypi.org/project/UEML)
   pip install UEML
 ```
     
-There is also a **UEML** Module for _Ruby_, install it with 
+There is also a **UEML** Module for _Ruby_ in [Ruby Gems](https://rubygems.org/gems/UEML), install it with 
 ```bash
 gem install UEML
 ```
