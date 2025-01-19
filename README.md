@@ -18,13 +18,22 @@ Unlike **TOML**/**ini**, **UEML** Declares Sections with `>` instead of wrapping
 
 ## Installation
 
-The official UEML _Python_ Module is in [PyPI](https://pypi.org/project/UEML)
-
+UEML is published for Various Programming languages, The official Implementation is for _Python_, The recommended way to install UEML in Python is with `pip`
+### Python
+#### pip
+Install with `pip`
 ```bash
-  pip install UEML
+pip install UEML
 ```
-    
-There is also a **UEML** Module for _Ruby_ in [Ruby Gems](https://rubygems.org/gems/UEML), install it with 
+#### Arch Linux
+Use the PKGBUILD to install `python-ueml`
+### Node.js
+Install with `npm`
+```bash
+npm install ueml
+```
+### Ruby
+Install with `gem`
 ```bash
 gem install UEML
 ```
