@@ -1,3 +1,10 @@
-__pycache__/
-pkgs/
-*.ueml
+
+*.*
+*/
+.*
+!*.py
+!*.js
+!*.rb
+!PKGBUILD
+!LICENSE
+!README.md

@@ -1,11 +1,20 @@
 import shlex
 
 class UEML:
+    """
+    A class to parse and manipulate UEML (User Extensible Markup Language) files.
+    """
     
     def __init__(self, file):
+        """
+        Initialize with the file to parse.
+        
+        :param file: Path to the UEML file
+        """
         self.file = file
 
     def read(self):
+
         sections = {}
         current_section_name = None
 
@@ -41,6 +50,7 @@ class UEML:
         return sections
 
     def _parse_value(self, value):
+
         value = shlex.split(value)[0]
 
         if value.lower() == "true":
@@ -57,14 +67,43 @@ class UEML:
             return value
 
     def _parse_array(self, value):
+
         return [self._convert_to_number(v.strip()) for v in value.split(',')]
 
     def _convert_to_number(self, s):
+
         if s.isdigit():
             return int(s)
         try:
             return float(s)
         except ValueError:
             return s
-ueml = UEML('example.ueml')
-print(ueml.read())
+
+    def write(self, file):
+
+        with open(file, 'w') as f:
+            for section, data in self.sections.items():
+                f.write(f">{section}\n")
+                for key, value in data.items():
+                    f.write(f"{key} = {self._format_value(value)};\n")
+    
+    def _format_value(self, value):
+
+        if isinstance(value, bool):
+            return "true" if value else "false"
+        elif isinstance(value, list):
+            return ', '.join(map(str, value))
+        else:
+            return str(value)
+
+    def display(self):
+
+        for section, data in self.sections.items():
+            print(f"[{section}]")
+            for key, value in data.items():
+                print(f"  {key} = {value}")
+            print()
+
+    def sections(self):
+
+        return self.read()  
